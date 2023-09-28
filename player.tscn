@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqflc3uinnehu"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_b7ta6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oav2a"]
+friction = 0.0
+rough = true
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0ab3u"]
+height = 1.9
+radius = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0jolc"]
+height = 0.001
+radius = 0.4
+
+[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("camera", "ground_detector", "collision")]
+collision_layer = 2
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_oav2a")
+lock_rotation = true
+continuous_cd = true
+script = ExtResource("1_b7ta6")
+camera = NodePath("Camera")
+ground_detector = NodePath("GroundDetector")
+collision = NodePath("Collision")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+shape = SubResource("CylinderShape3D_0ab3u")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+current = true
+
+[node name="GroundDetector" type="ShapeCast3D" parent="."]
+shape = SubResource("CylinderShape3D_0jolc")
+target_position = Vector3(0, 0, 0)
+collision_mask = 5
