@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://srku21ygtf8b"]
+
+[ext_resource type="Script" path="res://cannon.gd" id="1_86qy6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ykhgt"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31td2"]
+albedo_color = Color(0.572988, 0.572988, 0.572988, 1)
+metallic = 0.73
+roughness = 0.43
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_weiqu"]
+material = SubResource("StandardMaterial3D_31td2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3vi6"]
+albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
+metallic = 0.73
+roughness = 0.43
+
+[sub_resource type="BoxMesh" id="BoxMesh_rbvsu"]
+material = SubResource("StandardMaterial3D_c3vi6")
+size = Vector3(1.5, 1, 1.5)
+
+[node name="Cannon" type="StaticBody3D"]
+script = ExtResource("1_86qy6")
+shot_force = 25.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ykhgt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.324, -0.946057, 0, 0.946057, 0.324, 0, 0.830101, 1.70867)
+mesh = SubResource("CylinderMesh_weiqu")
+
+[node name="Muzzle" type="Marker3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.385, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0517251, 0)
+mesh = SubResource("BoxMesh_rbvsu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="shoot"]

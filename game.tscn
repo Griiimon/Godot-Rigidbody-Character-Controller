@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://chmj1r2fp58rx"]
+[gd_scene load_steps=27 format=3 uid="uid://chmj1r2fp58rx"]
 
 [ext_resource type="PackedScene" uid="uid://dqflc3uinnehu" path="res://player.tscn" id="1_lccm6"]
 [ext_resource type="Script" path="res://game.gd" id="1_pegr8"]
+[ext_resource type="PackedScene" uid="uid://srku21ygtf8b" path="res://cannon.tscn" id="3_bfjln"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0fjvv"]
 
@@ -163,6 +164,18 @@ shape = SubResource("BoxShape3D_4dh6i")
 mesh = SubResource("BoxMesh_fadny")
 skeleton = NodePath("../CollisionShape3D")
 
+[node name="RigidBody3D5" type="RigidBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 4.7977, 2.18168, -2.84711)
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/RigidBody3D5"]
+shape = SubResource("BoxShape3D_4dh6i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/RigidBody3D5"]
+mesh = SubResource("BoxMesh_fadny")
+skeleton = NodePath("../CollisionShape3D")
+
 [node name="RigidBody3D3" type="RigidBody3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77064, 2.18168, -2.84711)
 collision_layer = 4
@@ -192,3 +205,21 @@ shape = SubResource("BoxShape3D_b3d35")
 transform = Transform3D(0.9256, 0, 0.378503, 0, 1, 0, -0.378503, 0, 0.9256, -6.50034, 0, 0.194748)
 mesh = SubResource("BoxMesh_kfct5")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="Level"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.6036, 2.18168, -9.72155)
+collision_layer = 4
+collision_mask = 15
+mass = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/RigidBody3D4"]
+transform = Transform3D(0.9256, 0, 0.378503, 0, 1, 0, -0.378503, 0, 0.9256, -6.50034, 0, 0.194748)
+shape = SubResource("BoxShape3D_b3d35")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/RigidBody3D4"]
+transform = Transform3D(0.9256, 0, 0.378503, 0, 1, 0, -0.378503, 0, 0.9256, -6.50034, 0, 0.194748)
+mesh = SubResource("BoxMesh_kfct5")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Cannon" parent="Level" instance=ExtResource("3_bfjln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551259, -25.6052)

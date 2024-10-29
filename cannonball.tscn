@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgueq4gyrju6q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m50ay"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypgrv"]
+albedo_color = Color(0.572988, 0.572988, 0.572988, 1)
+metallic = 0.73
+roughness = 0.43
+
+[sub_resource type="SphereMesh" id="SphereMesh_ogxq4"]
+material = SubResource("StandardMaterial3D_ypgrv")
+
+[node name="Cannonball" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12625, 2.84119)
+mass = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_m50ay")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ogxq4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
