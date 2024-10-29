@@ -3,7 +3,7 @@ extends RigidBody3D
 const SPEED := 5.
 const MAX_SLOPE_ANGLE := 45
 const JUMP_FORCE := 7.5
-const MOUSE_SENSITIVITY = 0.01
+const MOUSE_SENSITIVITY = 0.005
 const HEIGHT := 1.9
 
 
@@ -96,4 +96,3 @@ func _unhandled_input(event):
 func _rotate_camera(rotation: Vector2):
 	camera.rotation.y -= rotation.x
 	camera.rotation.x = clamp(camera.rotation.x - rotation.y, -PI / 2, PI / 2)
-
