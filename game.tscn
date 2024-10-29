@@ -108,11 +108,9 @@ collision_mask = 15
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_lhaym")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_n7edk")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -122,11 +120,9 @@ collision_mask = 15
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_lhaym")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_n7edk")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -136,11 +132,9 @@ collision_mask = 15
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_lhaym")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_n7edk")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -154,7 +148,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_uuhra")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_4g3qh")
 skeleton = NodePath("../CollisionShape3D")
 
